@@ -6,46 +6,49 @@ using namespace std;
 int main(int argc, char** argv) {
 	cout << sizeof(Course);
 	Course* csit = new Course();
+	Course* cpe = new Course();
+	Course* current = new Course();
+	current = csit;
 	Student* s;
 	char op;
 	string removed;
 	while (true) {
-		cout << "Op(aDD, pRINT, rEMOVE, dELETE, cHECK): ";
+		cout << "Op(aDD, pRINT, rEMOVE, dELETE, cHECK, sWITCH): ";
 		cin  >> op;
 		switch (op) {
 			case 'a':
-				//adds student
 				s = new Student;
 				cout << "Name: ";
 				cin >> s->name;
-				csit->addStudent(s);
+				current->addStudent(s);
 				break;
 			case 'p':
-				//prints student array
-				csit->print();
+				current->print();
 				break;
 			
 			case 'r':
-				//removes all instances of the same inputted student
 				s = new Student;
 				cout << "Name: ";
 				cin >> s->name;
-				removed = csit->removeStudent(s);
+				removed = current->removeStudent(s);
 				cout<<"Removed: "<<removed<<endl;
 				break;
 				
 			case 'c':
-				//prints address of student*
 				s = new Student;
 				cout << "Name: ";
 				cin >> s->name;
-				csit->checkAddress(s);
+				current->checkAddress(s);
+				break;
+				
+			case 's':
+				current = (current == csit)? cpe : csit;
 				break;
 				
 			case 'd':
-				//deletes course
-				delete (csit);
-				return 0;
+				delete (current);
+				
 		}
 	}
+	return 0;
 }
