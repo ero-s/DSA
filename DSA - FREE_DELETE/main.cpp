@@ -14,16 +14,19 @@ int main(int argc, char** argv) {
 		cin  >> op;
 		switch (op) {
 			case 'a':
+				//adds student
 				s = new Student;
 				cout << "Name: ";
 				cin >> s->name;
 				csit->addStudent(s);
 				break;
 			case 'p':
+				//prints student array
 				csit->print();
 				break;
 			
 			case 'r':
+				//removes all instances of the same inputted student
 				s = new Student;
 				cout << "Name: ";
 				cin >> s->name;
@@ -32,6 +35,7 @@ int main(int argc, char** argv) {
 				break;
 				
 			case 'c':
+				//prints address of student*
 				s = new Student;
 				cout << "Name: ";
 				cin >> s->name;
@@ -39,6 +43,7 @@ int main(int argc, char** argv) {
 				break;
 				
 			case 'd':
+				//deletes course
 				delete (csit);
 				return 0;
 		}
